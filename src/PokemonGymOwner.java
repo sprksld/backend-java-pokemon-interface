@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class PokemonGymOwner extends PokemonTrainer {
     private String name;
 
@@ -12,6 +15,10 @@ public class PokemonGymOwner extends PokemonTrainer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Pokemon> getPokemonList() {
+        return Arrays.asList(getCharizard(), getBlastoise(), getDitto(), getGyarados(), getRaichu(), getVenusaur());
     }
 
 }

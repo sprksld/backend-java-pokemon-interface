@@ -8,12 +8,12 @@ public class PokemonTrainer {
     private List<Pokemon> pokemons = new ArrayList<>();
 
 
-    private WaterPokemon blastoise = new WaterPokemon();
-    private WaterPokemon gyarados = new WaterPokemon();
-    private FirePokemon charizard = new FirePokemon();
-    private GrassPokemon ditto = new GrassPokemon();
-    private ElectricPokemon raichu = new ElectricPokemon();
-    private GrassPokemon venusaur = new GrassPokemon();
+    private WaterPokemon blastoise = new WaterPokemon("Blastoise", 1,  79, "candy", "jum");
+    private WaterPokemon gyarados = new WaterPokemon( "Gyarados", 1, 95, "beans", "smack");
+    private FirePokemon charizard = new FirePokemon( "Charizard", 1, 78, "noodles", "mmmmjam");
+    private GrassPokemon ditto = new GrassPokemon( "Ditto", 1, 48, "", "whooosh");
+    private ElectricPokemon raichu = new ElectricPokemon("Raichu", 1, 60, "honey", "drip");
+    private GrassPokemon venusaur = new GrassPokemon("Venusaur", 1, 80, "tomato", "splash");
 
     public PokemonTrainer(String name) {
         this.name = name;

@@ -11,19 +11,30 @@ public class GrassPokemon extends Pokemon {
     public GrassPokemon( String name, int level, int hp, String food, String sound ) {
         super( name, level, hp, food, sound );
         super.setType("grass");
+        this.type = "grass";
+        this.food = food;
+        this.sound = sound;
     }
 
     List<String> attacks = Arrays.asList( "leafStorm", "leechSeed", "solarBeam", "leaveBlade" );
 
+    @Override
     public void leafStorm(Pokemon name, Pokemon enemy) {
         System.out.println("hoi");
     }
+    @Override
     public void leechSeed(Pokemon name, Pokemon enemy) {
-        System.out.println("hoi");
+        int amount = 15;
+        System.out.println( name.getName() + " attacks "
+                + enemy.getName() + " with leechSeed");
+        name.setHp(name.getHp() + amount);
+        enemy.setHp(enemy.getHp() - amount);
     }
+    @Override
     public void solarBeam(Pokemon name, Pokemon enemy) {
         System.out.println("hoi");
     }
+    @Override
     public void leaveBlade(Pokemon name, Pokemon enemy) {
         System.out.println("hoi");
     }
