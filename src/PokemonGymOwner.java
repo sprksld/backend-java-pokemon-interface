@@ -2,7 +2,7 @@ public class PokemonGymOwner extends PokemonTrainer {
     private String name;
 
     public PokemonGymOwner(String name) {
-        super();
+        super(name);
         this.name = name;
     }
 

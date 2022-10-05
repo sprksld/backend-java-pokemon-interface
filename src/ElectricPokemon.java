@@ -3,6 +3,11 @@ import java.util.List;
 
 public class ElectricPokemon extends Pokemon {
 
+    private final String type;
+    private final String food;
+    private final String sound;
+
+
     public ElectricPokemon( String name, int level, int hp, String food, String sound ) {
         super( name, level, hp, food, sound );
         super.setType("electric");
@@ -13,8 +18,7 @@ public class ElectricPokemon extends Pokemon {
     void thunderPunch(Pokemon name, Pokemon enemy) {
         int loss = 0;
         System.out.println( name.getName() + " attacks "
-                            + enemy.getName() + " with "
-                            + " nader te bepalen");
+                            + enemy.getName() + " with thunderPunch");
         if ( name.getType() == "water" && enemy.getType() == "fire" ) {
             loss = 15;
         }
@@ -25,8 +29,18 @@ public class ElectricPokemon extends Pokemon {
         }
 
     }
-    void electroBall(Pokemon name, Pokemon enemy);
-    void thunder(Pokemon name, Pokemon enemy);
-    void voltTackle(Pokemon name, Pokemon enemy);
+    void electroBall(Pokemon name, Pokemon enemy) {
+        System.out.println("electricBall");
+    }
+    void thunder(Pokemon name, Pokemon enemy) {
+        if ( enemy.getType().equals("electric") ) {
+            enemy.setHp(enemy.getHp() + 10);
+        } else {
+            enemy.setHp(enemy.getHp() - 10);
+        }
+    }
+    void voltTackle(Pokemon name, Pokemon enemy) {
+        System.out.println("voltTackle");
+    }
 
 }

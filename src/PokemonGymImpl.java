@@ -54,26 +54,26 @@ public class PokemonGymImpl implements PokemonGym {
             attackOrChange(pokemon, gymPokemon, trainer, owner);
 
         }
-        if(pokemon.getHp() <= 0){
+        if (pokemon.getHp() <= 0) {
             System.out.println(gymPokemon.getName() + " has defeated " + pokemon.getName());
-        } else if (gymPokemon.getHp() <= 0){
+        } else if (gymPokemon.getHp() <= 0) {
             System.out.println(pokemon.getName() + " has defeated " + gymPokemon.getName());
         }
 
         System.out.println("Would you like to keep playing? yes or no");
         String keepPlaying = speler_A.nextLine();
-        if (keepPlaying.equals("yes")){
+        if (keepPlaying.equals("yes")) {
             enteredTheGym(trainer);
         } else {
             System.out.println("Thank you for playing");
         }
     }
 
-    public Pokemon chooseGymPokemon(PokemonGymOwner gymOwner){
+    public Pokemon chooseGymPokemon(PokemonGymOwner gymOwner) {
         Random rand = new Random();
         List<Pokemon> pokemons = new ArrayList<>();
         for (Pokemon p : gymOwner.getPokemons()) {
-            if(p.getHp() > 0 ){
+            if (p.getHp() > 0) {
                 pokemons.add(p);
             }
         }
@@ -82,11 +82,11 @@ public class PokemonGymImpl implements PokemonGym {
         return pokemons.get(randomNumber);
     }
 
-    public Pokemon choosePokemon(PokemonTrainer trainer){
+    public Pokemon choosePokemon(PokemonTrainer trainer) {
         Scanner speler_A = new Scanner(System.in);
         List<Pokemon> pokemons = new ArrayList<>();
         for (Pokemon p : trainer.getPokemons()) {
-            if(p.getHp() > 0 ){
+            if (p.getHp() > 0) {
                 pokemons.add(p);
             }
         }
@@ -98,44 +98,43 @@ public class PokemonGymImpl implements PokemonGym {
         return selectPokemon(pokemon, trainer);
     }
 
-    public int randomAttackByGymOwner(){
+    public int randomAttackByGymOwner() {
         Random rand = new Random();
         int maxAttacks = 4;
         return rand.nextInt(maxAttacks);
     }
 
-    public String chooseAttackPlayer(Pokemon p){
+    public String chooseAttackPlayer(Pokemon p) {
         Scanner speler_A = new Scanner(System.in);
         String type = p.getType();
         switch (type) {
-            case "fire" -> {
+            case "fire":
                 FirePokemon fp = (FirePokemon) p;
                 System.out.println("Choose your attack");
                 System.out.println(fp.getAttacks());
                 return speler_A.nextLine();
-            }
-            case "water" -> {
+
+            case "water":
                 WaterPokemon wp = (WaterPokemon) p;
                 System.out.println("Choose your attack");
                 System.out.println(wp.getAttacks());
                 return speler_A.nextLine();
-            }
-            case "electric" -> {
+
+            case "electric":
                 ElectricPokemon ep = (ElectricPokemon) p;
                 System.out.println("Choose your attack");
                 System.out.println(ep.getAttacks());
                 return speler_A.nextLine();
-            }
-            default -> {
+
+            default:
                 GrassPokemon gp = (GrassPokemon) p;
                 System.out.println("Choose your attack");
                 System.out.println(gp.getAttacks());
                 return speler_A.nextLine();
-            }
         }
     }
 
-    public void performAttackPlayer(Pokemon pokemon, Pokemon gymPokemon, String attack){
+    public void performAttackPlayer(Pokemon pokemon, Pokemon gymPokemon, String attack) {
         FirePokemon fire;
         ElectricPokemon electric;
         GrassPokemon grass;
@@ -144,96 +143,134 @@ public class PokemonGymImpl implements PokemonGym {
         String choosenAttack = attack.toLowerCase(Locale.ROOT);
 
         switch (pokemon.getType()) {
-            case "fire" -> {
+            case "fire":
                 fire = new FirePokemon(pokemon.getName(), pokemon.getLevel(), pokemon.getHp(), pokemon.getFood(), pokemon.getSound());
                 switch (choosenAttack) {
-                    case "inferno" -> fire.inferno(pokemon, gymPokemon);
-                    case "pyroball" -> fire.pyroBall(pokemon, gymPokemon);
-                    case "firelash" -> fire.fireLash(pokemon, gymPokemon);
-                    default -> fire.flameThrower(pokemon, gymPokemon);
+                    case "inferno":
+                        fire.inferno(pokemon, gymPokemon);
+                        break;
+                    case "pyroball":
+                        fire.pyroBall(pokemon, gymPokemon);
+                        break;
+                    case "firelash":
+                        fire.fireLash(pokemon, gymPokemon);
+                        break;
+                    default:
+                        fire.flameThrower(pokemon, gymPokemon);
+                        break;
                 }
-            }
-            case "water" -> {
+                break;
+
+            case "water":
                 water = new WaterPokemon(pokemon.getName(), pokemon.getLevel(), pokemon.getHp(), pokemon.getFood(), pokemon.getSound());
                 switch (choosenAttack) {
-                    case "surf" -> water.surf(pokemon, gymPokemon);
-                    case "hydropump" -> water.hydroPump(pokemon, gymPokemon);
-                    case "hydrocanon" -> water.hydroCanon(pokemon, gymPokemon);
-                    default -> water.rainDance(pokemon, gymPokemon);
+                    case "surf":
+                        water.surf(pokemon, gymPokemon);
+                        break;
+                    case "hydropump":
+                        water.hydroPump(pokemon, gymPokemon);
+                        break;
+                    case "hydrocanon":
+                        water.hydroCanon(pokemon, gymPokemon);
+                        break;
+                    default:
+                        water.rainDance(pokemon, gymPokemon);
+                        break;
                 }
-            }
-            case "grass" -> {
+                break;
+
+            case "grass":
                 grass = new GrassPokemon(pokemon.getName(), pokemon.getLevel(), pokemon.getHp(), pokemon.getFood(), pokemon.getSound());
                 switch (choosenAttack) {
-                    case "leafstorm" -> grass.leafStorm(pokemon, gymPokemon);
-                    case "solarbeam" -> grass.solarBeam(pokemon, gymPokemon);
-                    case "leechseed" -> grass.leechSeed(pokemon, gymPokemon);
-                    default -> grass.leaveBlade(pokemon, gymPokemon);
+                    case "leafstorm":
+                        grass.leafStorm(pokemon, gymPokemon);
+                        break;
+                    case "solarbeam":
+                        grass.solarBeam(pokemon, gymPokemon);
+                        break;
+                    case "leechseed":
+                        grass.leechSeed(pokemon, gymPokemon);
+                        break;
+                    default:
+                        grass.leaveBlade(pokemon, gymPokemon);
+                        break;
                 }
-            }
-            default -> {
+            default:
                 electric = new ElectricPokemon(pokemon.getName(), pokemon.getLevel(), pokemon.getHp(), pokemon.getFood(), pokemon.getSound());
                 switch (choosenAttack) {
-                    case "thunderpunch" -> electric.thunderPunch(pokemon, gymPokemon);
-                    case "electroball" -> electric.electroBall(pokemon, gymPokemon);
-                    case "thunder" -> electric.thunder(pokemon, gymPokemon);
-                    default -> electric.voltTackle(pokemon, gymPokemon);
+                    case "thunderpunch":
+                        electric.thunderPunch(pokemon, gymPokemon);
+                        break;
+                    case "electroball":
+                        electric.electroBall(pokemon, gymPokemon);
+                        break;
+                    case "thunder":
+                        electric.thunder(pokemon, gymPokemon);
+                        break;
+                    default:
+                        electric.voltTackle(pokemon, gymPokemon);
+                        break;
                 }
-            }
+                break;
         }
     }
 
-    public void gymOwnerAttacks(Pokemon gymPokemon, Pokemon pokemon){
+    public void gymOwnerAttacks(Pokemon gymPokemon, Pokemon pokemon) {
         FirePokemon fire;
         ElectricPokemon electric;
         GrassPokemon grass;
         WaterPokemon water;
 
+        String attack;
+
         switch (gymPokemon.getType()) {
-            case "fire" -> {
+            case "fire":
                 fire = new FirePokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
-                String attack = fire.getAttacks().get(randomAttackByGymOwner());
+                attack = fire.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
-                    case "inferno" -> fire.inferno(gymPokemon, pokemon);
-                    case "pyroBall" -> fire.pyroBall(gymPokemon, pokemon);
-                    case "fireLash" -> fire.fireLash(gymPokemon, pokemon);
-                    default -> fire.flameThrower(gymPokemon, pokemon);
+                    case "inferno": fire.inferno(gymPokemon, pokemon); break;
+                    case "pyroBall": fire.pyroBall(gymPokemon, pokemon); break;
+                    case "fireLash": fire.fireLash(gymPokemon, pokemon); break;
+                    default: fire.flameThrower(gymPokemon, pokemon); break;
                 }
-            }
-            case "water" -> {
+                break;
+
+            case "water":
                 water = new WaterPokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
-                String attack = water.getAttacks().get(randomAttackByGymOwner());
+                attack = water.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
-                    case "surf" -> water.surf(gymPokemon, pokemon);
-                    case "hydroPump" -> water.hydroPump(gymPokemon, pokemon);
-                    case "hydroCanon" -> water.hydroCanon(gymPokemon, pokemon);
-                    default -> water.rainDance(gymPokemon, pokemon);
+                    case "surf": water.surf(gymPokemon, pokemon); break;
+                    case "hydroPump": water.hydroPump(gymPokemon, pokemon); break;
+                    case "hydroCanon": water.hydroCanon(gymPokemon, pokemon); break;
+                    default: water.rainDance(gymPokemon, pokemon); break;
                 }
-            }
-            case "grass" -> {
+                break;
+            case "grass":
                 grass = new GrassPokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
-                String attack = grass.getAttacks().get(randomAttackByGymOwner());
+                attack = grass.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
-                    case "leafStorm" -> grass.leafStorm(gymPokemon, pokemon);
-                    case "solarBeam" -> grass.solarBeam(gymPokemon, pokemon);
-                    case "leechSeed" -> grass.leechSeed(gymPokemon, pokemon);
-                    default -> grass.leaveBlade(gymPokemon, pokemon);
+                    case "leafStorm": grass.leafStorm(gymPokemon, pokemon); break;
+                    case "solarBeam": grass.solarBeam(gymPokemon, pokemon); break;
+                    case "leechSeed": grass.leechSeed(gymPokemon, pokemon); break;
+                    default: grass.leaveBlade(gymPokemon, pokemon); break;
                 }
-            }
-            default -> {
+                break;
+
+            default:
                 electric = new ElectricPokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
-                String attack = electric.getAttacks().get(randomAttackByGymOwner());
+                attack = electric.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
-                    case "thunderPunch" -> electric.thunderPunch(gymPokemon, pokemon);
-                    case "electroBall" -> electric.electroBall(gymPokemon, pokemon);
-                    case "thunder" -> electric.thunder(gymPokemon, pokemon);
-                    default -> electric.voltTackle(gymPokemon, pokemon);
+                    case "thunderPunch": electric.thunderPunch(gymPokemon, pokemon); break;
+                    case "electroBall": electric.electroBall(gymPokemon, pokemon); break;
+                    case "thunder": electric.thunder(gymPokemon, pokemon); break;
+                    default: electric.voltTackle(gymPokemon, pokemon); break;
                 }
-            }
+                break;
+
         }
     }
 
-    public void attackOrChange(Pokemon pokemon, Pokemon gymPokemon, PokemonTrainer trainer, PokemonGymOwner gym){
+    public void attackOrChange(Pokemon pokemon, Pokemon gymPokemon, PokemonTrainer trainer, PokemonGymOwner gym) {
         Scanner speler_A = new Scanner(System.in);
 
         System.out.println("Do you want to attack or change your pokemon?");
