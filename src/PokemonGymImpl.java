@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PokemonGymImpl /* extends Pokemon */ implements PokemonGym {
+public class PokemonGymImpl implements PokemonGym {
 
     public void enteredTheGym(PokemonTrainer player1) {
         PokemonGymOwner gymOwner = new PokemonGymOwner("Brock");

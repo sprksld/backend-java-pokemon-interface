@@ -3,15 +3,11 @@ import java.util.List;
 
 public class GrassPokemon extends Pokemon {
 
-    private final String type;
     private final String food;
     private final String sound;
 
-
     public GrassPokemon( String name, int level, int hp, String food, String sound ) {
-        super( name, level, hp, food, sound );
-        super.setType("grass");
-        this.type = "grass";
+        super( name, level, hp, "grass" );
         this.food = food;
         this.sound = sound;
     }
@@ -20,7 +16,11 @@ public class GrassPokemon extends Pokemon {
 
     @Override
     public void leafStorm(Pokemon name, Pokemon enemy) {
-        System.out.println("hoi");
+        System.out.println("leafStorm");
+    }
+    @Override
+    public void solarBeam(Pokemon name, Pokemon enemy) {
+        System.out.println("solarBeam");
     }
     @Override
     public void leechSeed(Pokemon name, Pokemon enemy) {
@@ -31,12 +31,8 @@ public class GrassPokemon extends Pokemon {
         enemy.setHp(enemy.getHp() - amount);
     }
     @Override
-    public void solarBeam(Pokemon name, Pokemon enemy) {
-        System.out.println("hoi");
-    }
-    @Override
     public void leaveBlade(Pokemon name, Pokemon enemy) {
-        System.out.println("hoi");
+        System.out.println("leaveBlade");
     }
 
 }

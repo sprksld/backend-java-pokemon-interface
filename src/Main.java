@@ -24,7 +24,7 @@ public class Main {
         System.out.println("Would you like to enter a gym looking for a fight?");
         System.out.println("Please enter yes or no");
         if (speler_A.nextLine().equals("yes")) {
-//            pokemonGym.enteredTheGym(player1);
+            pokemonGym.enteredTheGym(player1);
         }
 
     }

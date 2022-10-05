@@ -87,5 +87,4 @@ public class PokemonTrainer {
         return Arrays.asList(getCharizard(), getBlastoise(), getDitto(), getGyarados(), getRaichu(), getVenusaur());
     }
 
-
 }

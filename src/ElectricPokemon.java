@@ -3,15 +3,11 @@ import java.util.List;
 
 public class ElectricPokemon extends Pokemon {
 
-    private final String type;
     private final String food;
     private final String sound;
 
-
     public ElectricPokemon( String name, int level, int hp, String food, String sound ) {
-        super( name, level, hp, food, sound );
-        super.setType("electric");
-        this.type = "electric";
+        super( name, level, hp, "electric" );
         this.food = food;
         this.sound = sound;
     }

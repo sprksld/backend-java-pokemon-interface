@@ -44,14 +44,11 @@ public abstract class Pokemon {
 
     void voltTackle(Pokemon name, Pokemon enemy) {}
 
-
-
-    public Pokemon(String name, int level, int hp, String food, String sound) {
+    public Pokemon(String name, int level, int hp, String type) {
         this.name = name;
         this.level = level;
         this.hp = hp;
-        this.food = food;
-        this.sound = sound;
+        this.type = type;
     }
 
     public String getName() {
@@ -106,9 +103,7 @@ public abstract class Pokemon {
         return attacks;
     }
 
-    public void setAttacks(List<String> attacks) {
-        this.attacks = attacks;
-    }
+    public void setAttacks(List<String> attacks) {}
 
     public void getPokemonList() {
 

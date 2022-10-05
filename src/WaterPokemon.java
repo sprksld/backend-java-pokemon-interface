@@ -3,21 +3,21 @@ import java.util.List;
 
 public class WaterPokemon extends Pokemon {
 
-    private final String type;
     private final String food;
     private final String sound;
 
-
     public WaterPokemon( String name, int level, int hp, String food, String sound ) {
-        super( name, level, hp, food, sound );
-        super.setType("water");
-        this.type = "water";
+        super( name, level, hp, "water" );
         this.food = food;
         this.sound = sound;
     }
 
     List<String> attacks = Arrays.asList( "surf", "hydroPump", "hydroCanon", "rainDance" );
 
+    @Override
+    public void setAttacks(List<String> attacks) {
+        this.attacks = attacks;
+    }
 
     void surf(Pokemon name, Pokemon enemy) {
         System.out.println("whaatup");
