@@ -65,9 +65,10 @@ public class GrassPokemon extends Pokemon {
         System.out.println( name.getName() + " attacks "
                 + enemy.getName() + " with leechSeed");
         int amount = 15;
-        name.setHp(name.getHp() + amount);
         enemy.setHp(enemy.getHp() - amount);
         System.out.println( name.getName() + " drained " + amount + " hp from " + enemy.getName());
+        name.setHp(name.getHp() + amount);
+        System.out.println( name.getName() + " gained " + amount + " hp using leechSeed on " + enemy.getName());
         printHpLeft(enemy);
     }
     @Override
