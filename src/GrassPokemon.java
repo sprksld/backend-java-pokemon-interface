@@ -6,13 +6,23 @@ public class GrassPokemon extends Pokemon {
     private final String food;
     private final String sound;
 
+    private List<String> attacks = Arrays.asList( "leafStorm", "leechSeed", "solarBeam", "leaveBlade" );
+
     public GrassPokemon( String name, int level, int hp, String food, String sound ) {
         super( name, level, hp, "grass" );
         this.food = food;
         this.sound = sound;
     }
 
-    List<String> attacks = Arrays.asList( "leafStorm", "leechSeed", "solarBeam", "leaveBlade" );
+    @Override
+    public List<String> getAttacks() {
+        return attacks;
+    }
+
+    @Override
+    public void setAttacks(List<String> attacks) {
+        this.attacks = attacks;
+    }
 
     @Override
     public void leafStorm(Pokemon name, Pokemon enemy) {

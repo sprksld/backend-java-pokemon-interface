@@ -44,6 +44,9 @@ public abstract class Pokemon {
 
     void voltTackle(Pokemon name, Pokemon enemy) {}
 
+
+
+
     public Pokemon(String name, int level, int hp, String type) {
         this.name = name;
         this.level = level;
