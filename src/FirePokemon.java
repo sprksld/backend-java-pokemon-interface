@@ -1,5 +1,3 @@
-import com.sun.nio.file.SensitivityWatchEventModifier;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -52,25 +50,25 @@ public class FirePokemon extends Pokemon {
 
     @Override
     void inferno(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "inferno" );
+        printAttackInfo( name, enemy, "inferno" );
         drainHp( name, enemy );
         printHpLeft( enemy );
     }
     @Override
     void pyroBall(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "pyroBall" );
+        printAttackInfo( name, enemy, "pyroBall" );
         drainHp( name, enemy );
         printHpLeft( enemy );
     }
     @Override
     void fireLash(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "fireLash" );
+        printAttackInfo( name, enemy, "fireLash" );
         drainHp( name, enemy );
         printHpLeft( enemy );
     }
     @Override
     void flameThrower(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "flameThrower" );
+        printAttackInfo( name, enemy, "flameThrower" );
         drainHp( name, enemy );
         printHpLeft( enemy );
     }

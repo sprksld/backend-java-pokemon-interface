@@ -51,25 +51,25 @@ public class WaterPokemon extends Pokemon {
 
     @Override
     void surf(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "surf" );
+        printAttackInfo( name, enemy, "surf" );
         drainHp( name, enemy );
         printHpLeft( enemy );
     }
     @Override
     void hydroPump(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "hydroPump" );
+        printAttackInfo( name, enemy, "hydroPump" );
         drainHp( name, enemy );
         printHpLeft( enemy );
     }
     @Override
     void hydroCanon(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "hydroCanon" );
+        printAttackInfo( name, enemy, "hydroCanon" );
         drainHp( name, enemy );
         printHpLeft( enemy );
     }
     @Override
     void rainDance(Pokemon name, Pokemon enemy) {
-        attackInfo(name,enemy,"rainDance");
+        printAttackInfo(name,enemy,"rainDance");
         if ( enemy.getType().equals("electric") ) {
             System.out.println("has no effect on " + enemy.getName());
         } else if ( enemy.getType().equals("grass") ) {

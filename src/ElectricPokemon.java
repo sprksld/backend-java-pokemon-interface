@@ -50,13 +50,13 @@ public class ElectricPokemon extends Pokemon {
 
     @Override
     void thunderPunch(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "thunderPunch" );
+        printAttackInfo( name, enemy, "thunderPunch" );
         drainHp( name, enemy );
         printHpLeft( enemy );
     }
     @Override
     void electroBall(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "electroBall" );
+        printAttackInfo( name, enemy, "electroBall" );
         drainHp( name, enemy );
         printHpLeft( enemy );
     }
@@ -66,14 +66,14 @@ public class ElectricPokemon extends Pokemon {
             System.out.println(enemy.getName()+" got boosted by thunder");
             enemy.setHp(enemy.getHp()+60);
         }else {
-            attackInfo(name, enemy, "thunder");
+            printAttackInfo(name, enemy, "thunder");
             drainHp(name, enemy);
         }
         printHpLeft( enemy );
     }
     @Override
     void voltTackle(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "voltTackle" );
+        printAttackInfo( name, enemy, "voltTackle" );
         drainHp( name, enemy );
         printHpLeft( enemy );
     }

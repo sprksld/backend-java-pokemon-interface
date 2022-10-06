@@ -50,13 +50,13 @@ public class GrassPokemon extends Pokemon {
 
     @Override
     public void leafStorm(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "leaveBlade" );
+        printAttackInfo( name, enemy, "leafStorm" );
         drainHp( name, enemy );
         printHpLeft(enemy);
     }
     @Override
     public void solarBeam(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "leaveBlade" );
+        printAttackInfo( name, enemy, "solarBeam" );
         drainHp( name, enemy );
         printHpLeft(enemy);
     }
@@ -72,7 +72,7 @@ public class GrassPokemon extends Pokemon {
     }
     @Override
     public void leaveBlade(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "leaveBlade" );
+        printAttackInfo( name, enemy, "leaveBlade" );
         drainHp( name, enemy );
         printHpLeft(enemy);
     }

@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class Pokemon {
@@ -67,7 +66,7 @@ public abstract class Pokemon {
 
     public abstract String getSound();
 
-    public void attackInfo( Pokemon name, Pokemon enemy, String attack ) {
+    public void printAttackInfo(Pokemon name, Pokemon enemy, String attack ) {
         System.out.println( name.getName() + " attacks "
                 + enemy.getName() + " with " + attack );
     }
