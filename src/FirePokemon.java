@@ -1,3 +1,5 @@
+import com.sun.nio.file.SensitivityWatchEventModifier;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,6 +17,16 @@ public class FirePokemon extends Pokemon {
     }
 
     @Override
+    public String getFood() {
+        return this.food;
+    }
+
+    @Override
+    public String getSound() {
+        return this.sound;
+    }
+
+    @Override
     public List<String> getAttacks() {
         return attacks;
     }
@@ -23,22 +35,44 @@ public class FirePokemon extends Pokemon {
     public void setAttacks(List<String> attacks) {
         this.attacks = attacks;
     }
+    public void drainHp( Pokemon name, Pokemon enemy) {
+        int amount = 0;
+        if (enemy.getType().equals("grass")) {
+            amount = 40;
+        } else if (enemy.getType().equals("water")) {
+            amount = 30;
+        } else if (enemy.getType().equals("electric")) {
+            amount = 20;
+        } else if (enemy.getType().equals("fire")) {
+            amount = 5;
+        }
+        enemy.setHp( enemy.getHp() - amount );
+        System.out.println(enemy.getName() + " loses " +  amount + " points");
+    }
 
     @Override
     void inferno(Pokemon name, Pokemon enemy) {
-        System.out.println("inferno");
+        attackInfo( name, enemy, "inferno" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
     @Override
     void pyroBall(Pokemon name, Pokemon enemy) {
-        System.out.println("pyroBall");
+        attackInfo( name, enemy, "pyroBall" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
     @Override
     void fireLash(Pokemon name, Pokemon enemy) {
-        System.out.println("fireLash");
+        attackInfo( name, enemy, "fireLash" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
     @Override
     void flameThrower(Pokemon name, Pokemon enemy) {
-        System.out.println("flameThrower");
+        attackInfo( name, enemy, "flameThrower" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
 
 }

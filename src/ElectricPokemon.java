@@ -15,44 +15,62 @@ public class ElectricPokemon extends Pokemon {
     }
 
     @Override
+    public String getFood() {
+        return this.food;
+    }
+
+    @Override
+    public String getSound() {
+        return this.sound;
+    }
+
+    @Override
     public List<String> getAttacks() {
-        return attacks;
+        return this.attacks;
     }
 
     @Override
     public void setAttacks(List<String> attacks) {
         this.attacks = attacks;
     }
+    public void drainHp( Pokemon name, Pokemon enemy) {
+        int amount = 0;
+        if (enemy.getType().equals("water")) {
+            amount = 40;
+        } else if (enemy.getType().equals("grass")) {
+            amount = 30;
+        } else if (enemy.getType().equals("fire")) {
+            amount = 20;
+        } else if (enemy.getType().equals("electric")) {
+            amount = 5;
+        }
+        enemy.setHp( enemy.getHp() - amount );
+        System.out.println(enemy.getName() + " loses " +  amount + " points");
+    }
 
     @Override
     void thunderPunch(Pokemon name, Pokemon enemy) {
-        int amount = 0;
-        System.out.println( name.getName() + " attacks "
-                            + enemy.getName() + " with thunderPunch");
-        if ( name.getType().equals("water") && enemy.getType().equals("fire") ) {
-            amount = 15;
-        }
-        if ( amount > 0 ) {
-            System.out.println(enemy.getName() + " loses " +  amount + " points");
-            enemy.setHp(enemy.getHp() - amount);
-            System.out.println( enemy.getName() + " has " + enemy.getHp() + " left");
-        }
+        attackInfo( name, enemy, "thunderPunch" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
     @Override
     void electroBall(Pokemon name, Pokemon enemy) {
-        System.out.println("electroBall");
+        attackInfo( name, enemy, "electroBall" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
     @Override
     void thunder(Pokemon name, Pokemon enemy) {
-        if ( enemy.getType().equals("electric") ) {
-            enemy.setHp(enemy.getHp() + 10);
-        } else {
-            enemy.setHp(enemy.getHp() - 10);
-        }
+        attackInfo( name, enemy, "thunder" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
     @Override
     void voltTackle(Pokemon name, Pokemon enemy) {
-        System.out.println("voltTackle");
+        attackInfo( name, enemy, "voltTackle" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
 
 }

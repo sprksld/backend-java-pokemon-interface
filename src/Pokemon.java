@@ -5,45 +5,12 @@ public abstract class Pokemon {
     private String type;
     private String name;
 
-    int level;
-    int hp;
-    private String food;
-    private String sound;
+    private int level;
+    private int hp;
+//    private String food;
+//    private String sound;
 
     private List<String> attacks;
-
-    void surf(Pokemon name, Pokemon enemy) {}
-
-    void fireLash(Pokemon name, Pokemon enemy) {}
-
-    void leafStorm(Pokemon name, Pokemon enemy) {}
-
-    void hydroPump(Pokemon name, Pokemon enemy) {}
-
-    void thunderPunch(Pokemon name, Pokemon enemy) {}
-
-    void electroBall(Pokemon name, Pokemon enemy) {}
-
-    void solarBeam(Pokemon name, Pokemon enemy) {}
-
-    void flameThrower(Pokemon name, Pokemon enemy) {}
-
-    void hydroCanon(Pokemon name, Pokemon enemy) {}
-
-    void pyroBall(Pokemon name, Pokemon enemy) {}
-
-    void thunder(Pokemon name, Pokemon enemy) {}
-
-    void rainDance(Pokemon name, Pokemon enemy) {}
-
-    void leechSeed(Pokemon name, Pokemon enemy) {}
-
-    void leaveBlade(Pokemon name, Pokemon enemy) {}
-
-    void inferno(Pokemon name, Pokemon enemy) {}
-
-    void voltTackle(Pokemon name, Pokemon enemy) {}
-
 
 
 
@@ -78,21 +45,6 @@ public abstract class Pokemon {
         this.hp = hp;
     }
 
-    public String getFood() {
-        return food;
-    }
-
-    public void setFood(String food) {
-        this.food = food;
-    }
-
-    public String getSound() {
-        return sound;
-    }
-
-    public void setSound(String sound) {
-        this.sound = sound;
-    }
 
     public String getType() {
         return type;
@@ -108,8 +60,53 @@ public abstract class Pokemon {
 
     public void setAttacks(List<String> attacks) {}
 
-    public void getPokemonList() {
+    public void getPokemonList() {}
 
+
+    public abstract String getFood();
+
+    public abstract String getSound();
+
+    public void attackInfo( Pokemon name, Pokemon enemy, String attack ) {
+        System.out.println( name.getName() + " attacks "
+                + enemy.getName() + " with " + attack );
     }
+    public void printHpLeft( Pokemon enemy ) {
+        System.out.println( enemy.getName() + " has " + enemy.getHp() + " hp left");
+    }
+
+    void surf(Pokemon name, Pokemon enemy) {}
+
+    void fireLash(Pokemon name, Pokemon enemy) {}
+
+    void leafStorm(Pokemon name, Pokemon enemy) {}
+
+    void hydroPump(Pokemon name, Pokemon enemy) {}
+
+    void thunderPunch(Pokemon name, Pokemon enemy) {}
+
+    void electroBall(Pokemon name, Pokemon enemy) {}
+
+    void solarBeam(Pokemon name, Pokemon enemy) {}
+
+    void flameThrower(Pokemon name, Pokemon enemy) {}
+
+    void hydroCanon(Pokemon name, Pokemon enemy) {}
+
+    void pyroBall(Pokemon name, Pokemon enemy) {}
+
+    void thunder(Pokemon name, Pokemon enemy) {}
+
+    void rainDance(Pokemon name, Pokemon enemy) {}
+
+    void leechSeed(Pokemon name, Pokemon enemy) {}
+
+    void leaveBlade(Pokemon name, Pokemon enemy) {}
+
+    void inferno(Pokemon name, Pokemon enemy) {}
+
+    void voltTackle(Pokemon name, Pokemon enemy) {}
+
+
 }
 

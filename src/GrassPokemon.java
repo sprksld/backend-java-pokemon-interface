@@ -15,6 +15,16 @@ public class GrassPokemon extends Pokemon {
     }
 
     @Override
+    public String getFood() {
+        return this.food;
+    }
+
+    @Override
+    public String getSound() {
+        return this.sound;
+    }
+
+    @Override
     public List<String> getAttacks() {
         return attacks;
     }
@@ -23,26 +33,48 @@ public class GrassPokemon extends Pokemon {
     public void setAttacks(List<String> attacks) {
         this.attacks = attacks;
     }
+    public void drainHp( Pokemon name, Pokemon enemy) {
+        int amount = 0;
+        if (enemy.getType().equals("electric")) {
+            amount = 40;
+        } else if (enemy.getType().equals("fire")) {
+            amount = 30;
+        } else if (enemy.getType().equals("water")) {
+            amount = 20;
+        } else if (enemy.getType().equals("grass")) {
+            amount = 5;
+        }
+        enemy.setHp( enemy.getHp() - amount );
+        System.out.println(enemy.getName() + " loses " +  amount + " points");
+    }
 
     @Override
     public void leafStorm(Pokemon name, Pokemon enemy) {
-        System.out.println("leafStorm");
+        attackInfo( name, enemy, "leaveBlade" );
+        drainHp( name, enemy );
+        printHpLeft(enemy);
     }
     @Override
     public void solarBeam(Pokemon name, Pokemon enemy) {
-        System.out.println("solarBeam");
+        attackInfo( name, enemy, "leaveBlade" );
+        drainHp( name, enemy );
+        printHpLeft(enemy);
     }
     @Override
     public void leechSeed(Pokemon name, Pokemon enemy) {
-        int amount = 15;
         System.out.println( name.getName() + " attacks "
                 + enemy.getName() + " with leechSeed");
+        int amount = 15;
         name.setHp(name.getHp() + amount);
         enemy.setHp(enemy.getHp() - amount);
+        System.out.println( name.getName() + " drained " + amount + " hp from " + enemy.getName());
+        printHpLeft(enemy);
     }
     @Override
     public void leaveBlade(Pokemon name, Pokemon enemy) {
-        System.out.println("leaveBlade");
+        attackInfo( name, enemy, "leaveBlade" );
+        drainHp( name, enemy );
+        printHpLeft(enemy);
     }
 
 }

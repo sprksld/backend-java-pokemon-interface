@@ -15,6 +15,16 @@ public class WaterPokemon extends Pokemon {
     }
 
     @Override
+    public String getFood() {
+        return this.food;
+    }
+
+    @Override
+    public String getSound() {
+        return this.sound;
+    }
+
+    @Override
     public List<String> getAttacks() {
         return attacks;
     }
@@ -24,17 +34,38 @@ public class WaterPokemon extends Pokemon {
         this.attacks = attacks;
     }
 
+    public void drainHp( Pokemon name, Pokemon enemy) {
+        int amount = 0;
+        if (enemy.getType().equals("fire")) {
+            amount = 40;
+        } else if (enemy.getType().equals("electric")) {
+            amount = 30;
+        } else if (enemy.getType().equals("grass")) {
+            amount = 20;
+        } else if (enemy.getType().equals("water")) {
+            amount = 5;
+        }
+        enemy.setHp( enemy.getHp() - amount );
+        System.out.println(enemy.getName() + " loses " +  amount + " points");
+    }
+
     @Override
     void surf(Pokemon name, Pokemon enemy) {
-        System.out.println("surf");
+        attackInfo( name, enemy, "surf" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
     @Override
     void hydroPump(Pokemon name, Pokemon enemy) {
-        System.out.println("hydroPump");
+        attackInfo( name, enemy, "hydroPump" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
     @Override
     void hydroCanon(Pokemon name, Pokemon enemy) {
-        System.out.println("Jihaa");
+        attackInfo( name, enemy, "hydroCanon" );
+        drainHp( name, enemy );
+        printHpLeft( enemy );
     }
     @Override
     void rainDance(Pokemon name, Pokemon enemy) {

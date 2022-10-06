@@ -245,6 +245,7 @@ public class PokemonGymImpl implements PokemonGym {
                     default: water.rainDance(gymPokemon, pokemon); break;
                 }
                 break;
+
             case "grass":
                 grass = new GrassPokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
                 attack = grass.getAttacks().get(randomAttackByGymOwner());

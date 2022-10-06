@@ -1,9 +1,9 @@
 import java.util.List;
 
-abstract interface PokemonGym {
+interface PokemonGym {
 
-    public void enteredTheGym(PokemonTrainer player1);
+    void enteredTheGym(PokemonTrainer player1);
 
-    public void printPokemon(List<Pokemon> pokemons);
+    void printPokemon(List<Pokemon> pokemons);
 
 }
