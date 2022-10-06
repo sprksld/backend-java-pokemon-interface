@@ -70,15 +70,13 @@ public class WaterPokemon extends Pokemon {
     @Override
     void rainDance(Pokemon name, Pokemon enemy) {
         printAttackInfo(name,enemy,"rainDance");
-        if ( enemy.getType().equals("electric") ) {
-            System.out.println("has no effect on " + enemy.getName());
-        } else if ( enemy.getType().equals("grass") ) {
-            enemy.setHp(enemy.getHp() + 10);
-            System.out.println(enemy.getName() + " gained hp, thanks to the rainDance" );
+        if ( enemy.getType().equals("grass") ) {
+            int amount = 50;
+            enemy.setHp(enemy.getHp() + amount);
+            System.out.println(enemy.getName() + " got a boost of " + amount + " hp, thanks to the rainDance" );
             printHpLeft(enemy);
         } else {
-            enemy.setHp(enemy.getHp() - 10);
-            System.out.printf(name.getName()+" drained 10 hp from " + enemy.getName());
+            System.out.println("has no effect on " + enemy.getName());
             printHpLeft(enemy);
         }
     }
