@@ -62,8 +62,13 @@ public class ElectricPokemon extends Pokemon {
     }
     @Override
     void thunder(Pokemon name, Pokemon enemy) {
-        attackInfo( name, enemy, "thunder" );
-        drainHp( name, enemy );
+        if ( enemy.getType().equals("electric")) {
+            System.out.println(enemy.getName()+" got boosted by thunder");
+            enemy.setHp(enemy.getHp()+60);
+        }else {
+            attackInfo(name, enemy, "thunder");
+            drainHp(name, enemy);
+        }
         printHpLeft( enemy );
     }
     @Override
